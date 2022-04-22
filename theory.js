@@ -127,6 +127,126 @@ console.log(a === c); // true, потому, что в переменных хр
 //________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 //Способ перебора масивов
+let arr = [1,2,3,4]
+
+// #1 ES5 FOR
+for (let i = 0; i++; i<= arr.length) {
+    console.log(arr[i]); // 1, 2, 3, 4
+}
+
+// #2 ES6 FOR OF
+for (let item of arr) {
+    console.log(item); // 1, 2, 3, 4
+}
+
+// #3 FOREACH
+arr.forEach((element, index, ourArr) => {
+    console.log(element); // 1, 2, 3, 4 элементы масива
+    console.log(index); // 0, 1, 2, 3 индекс элемента масива
+    console.log(ourArr) // [1,2,3,4] (6) сам масив
+});
+
+// #4 MAP
+let newArr = arr.map(element => element += 1);
+console.log(newArr); // [2, 3, 4, 5]
+
+// #5 FILTER функция каллбэк возвращает true или false, если true тогда элемент добавляется в новый массив
+let lowArr = arr.filter(element => {
+    return element <= 3 ? true : false;
+});
+console.log(lowArr); // [1, 2, 3]
+
+// #6 REDUCE Возвращаем сумму элементов масива. Принимает 2 параметра (callback и начальное значение параметра total);
+let sum = arr.reduce((total, element) => {
+    return total + element;
+}, 0);
+
+console.log(sum); // 10
+
+// #7 FIND возвращает элемент масива который соответствует условию
+let number = arr.find((element) => {
+    return element == 2;
+})
+console.log(number); // 2
+
+// #8 FINDINDEX возвращает индекс элемента масива который соответствует условию
+let numberIndex = arr.findIndex((element) => {
+    return element == 2;
+})
+console.log(number); // 1
+
+//Все эти методы (начиная с MAP) можно выводить в цепочке
+let arrChain = arr
+    .filter(element => element <= 2)
+    .map(element => element += 2)
+    .reduce((total, element) => total + element, 0);
+console.log(arrChain); // 7
+
+//________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+// Все методы работы с масивом
+const people = [
+    {
+        name: 'Artem',
+        age: '25',
+        birthDay: '05',
+        birthMonth: '09',
+        birthyear: '1996',
+        sallary: '2000'
+    },
+    {
+        name: 'Darina',
+        age: '26',
+        birthDay: '25',
+        birthMonth: '12',
+        birthyear: '1995',
+        sallary: '1500'
+    }
+]
+
+// #1 .push(...items) -> добавляет элементы в конец
+people.push({
+    name: 'Slavik',
+    age: '26',
+    birthDay: '06',
+    birthMonth: '06',
+    birthyear: '1995',
+    sallary: '2500'
+})
+console.log(people); //[{name: 'Artem'...}{name: 'Darina'...}{name: 'Slavik'...}]
+
+// #2 .pop() -> достает элемент с конца и удаляет его из масива
+let lastElement = people.pop();
+console.log(lastElement); // {name: 'Darina'...}]
+console.log(people) //[{name: 'Artem'...}
+
+// #3 .shift() -> достает элемент с начала и удаляет его из масива
+let firstElement = people.shift();
+console.log(firstElement); // {name: 'Artem'...}
+console.log(people) //[{name: 'Darina'...}]
+
+// #4 .splice(str) -> Умеет всё: добавлять, удалять и заменять элементы. Возвращает массив из удалённых элементов.
+// .splice(index[, deleteCount, elem1, ..., elemN]) -> index - с какого элемента начать, deleteCount - какое к-во элементов удалить, elem1, ..., elemN - добавляет элементы на место удаленных
+people.splice(0, 1); // начиная с позиции 0, удалить 1 элемент
+console.log(people) //[{name: 'Darina'...}]
+
+// #5 .slice([start], [end]) -> Он возвращает новый массив, в который копирует элементы, начиная с индекса start и до end (не включая end).
+let newPeople = people.slice(1, 2);
+console.log(newPeople); // [{name: 'Darina'...}]
+
+// #6 .concat() -> создаёт новый массив, в который копирует данные из других массивов и дополнительные значения.
+// .concat(arg1, arg2...)
+const concatArr = [1, 2];
+const newConcatArr = people.concat(concatArr);
+console.log(newConcatArr); //[{…}, {…}, 1, 2]
+
+// #7 .split() и .join() -> .split() превращает строку в массив, .join() -> превращаем массив в строку
+const string = 'artem, darina, slavik';
+const stringToArray = string.split(',');
+const arrayToString = stringToArray.join(';');
+
+console.log(stringToArray); // ['artem', ' darina', ' slavik']
+console.log(arrayToString); 'artem; darina; slavik'
 
 //________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
