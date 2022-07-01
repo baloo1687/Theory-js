@@ -17,10 +17,10 @@ console.log(func());
 //Какие есть способы конвертировать строку в число?
 // 1. Using parseInt()
 // parseInt() parses a string and returns a whole number. Spaces are allowed. Only the first number is returned.
-myString = '129' 
-console.log(parseInt(myString)) // expected result: 129
-a = 12.22
-console.log(parseInt(a)) // expected result: 12
+myString = '129'; 
+console.log(parseInt(myString)); // expected result: 129
+a = 12.22;
+console.log(parseInt(a)); // expected result: 12
 
 // 2. Using Number()
 // Number() can be used to convert JavaScript variables to numbers. We can use it to convert the string too number.
@@ -264,10 +264,13 @@ let arr1 = [
 
 //Неправильно
 let arr2 = arr1;
+
 //Правильно
 let arr3 = [...arr1];
+
 //Правильно
-let arr4 = arr1.map(item => item)
+let arr4 = arr1.map(item => item);
+
 //Правильно
 let arr5 = JSON.parse(JSON.stringify(arr2));
 
