@@ -178,15 +178,21 @@ async function fetchFromApi() {
 
 Погружение событий (перехват (Capture)) Phase 1
 
+```
 Window -> document -> <html> -> <body> -> <button>
+```
 
 Target Phase 2
 
+```
 <button> - click
+```
 
 Всплытие событий (Bubbling) Phase 3
 
+```
 <button> -> <body> -> <html> -> document -> Window
+```
 
 ```
 button.addEventListener(click, (event) => { // button = <button>Button <strong>1</strong> </button>
