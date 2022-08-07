@@ -3,7 +3,28 @@
 ## Написать функцию которая принимает миллисекунды и возвращает время в виде hours:minutes:seconds
 Пример: функция принимает значение `3605000` и должна вернуть `1:00:05`
 ```
+function f(ms) {
+  let seconds = ms / 1000;
+  let minutes = seconds / 60;
+  let hours = minutes / 60;
 
+  if (seconds > 60) {
+    seconds = parseInt(seconds % 60, 10);
+    seconds = seconds % 60 >= 10 ? seconds % 60 : `0${seconds % 60}`;
+    if (minutes > 60) {
+      minutes = parseInt(minutes % 60, 10);
+      minutes = minutes >= 10 ? minutes : `0${minutes}`;
+      if (hours <= 24) {
+        hours = parseInt(hours, 10);
+        hours = hours >= 10 ? hours : `0${hours}`;
+      }
+    }
+  }
+
+  return `${hours}:${minutes}:${seconds}`;
+}
+
+console.log(f(3605000));
 ```
 
 ## Написать функцию которая принимает масив и возвращает новый масив в котором будут продублированны все элементы
