@@ -7,6 +7,18 @@ const arr = [1,1,2,3,3,2,5,4,2,1];
 let unique = arr.filter((value, index) => arr.indexOf(v) === i);
 console.log(unique);
 ```
+
+## Реализовать методы, которые в процессе выполнения строки (2).plus(3).minus(1) дали бы на выходе 4.
+```
+Number.prototype.plus = function (value) {
+	return this + value;
+}
+
+Number.prototype.minus = function (value) {
+	return this - value;
+}
+console.log((2).plus(3).minus(1))
+```
 ## Написать функцию которая принимает миллисекунды и возвращает время в виде hours:minutes:seconds
 Пример: функция принимает значение `3605000` и должна вернуть `1:00:05`
 ```
