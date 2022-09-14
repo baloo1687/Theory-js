@@ -215,7 +215,7 @@ function defaultFn() {
 }
 const obj = {name: 'Artem'};
 const newFnBind = defaultFn.bind(obj); //принимает в параметр контекст
-const newFnCall = defaultFn.call(obj, 'arg1', 'arg2'); //принимает в параметр в виде перечисления через запятую
+const newFnCall = defaultFn.call(obj, 'arg1', 'arg2'); //принимает в параметр в виде перечисления через запятую + вызывает функцию
 const newFnApply = defaultFn.apply(obj, ['arg1', 'arg2']); //принимает в параметр в виде масива
 console.log(newFnBind()); // {name: 'Artem'};
 console.log(newFnCall()); // {name: 'Artem'};
